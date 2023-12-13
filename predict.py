@@ -178,11 +178,6 @@ class Predictor(BasePredictor):
         print(f"Using seed: {seed}")
         generator = torch.Generator("cuda").manual_seed(seed)
 
-        # toggles watermark for this prediction
-        if not apply_watermark:
-            watermark_cache = pipe.watermark
-            pipe.watermark = None
-
         sdxl_kwargs = {}
         print(f"Prompt: {prompt}")
         if image and mask:
@@ -223,7 +218,6 @@ class Predictor(BasePredictor):
 
         if not apply_watermark:
             pipe.watermark = watermark_cache
-            self.refiner.watermark = watermark_cache
 
         if not disable_safety_checker:
             _, has_nsfw_content = self.run_safety_checker(output.images)
