@@ -4,7 +4,7 @@ This is an implementation of the [segmind-vega](https://huggingface.co/segmind/S
 
 Run predictions:
 
-    cog predict -i prompt="A cinematic shot of a penguin wearing an intricate italian robe, with a crown -i seed=2418008291
+    cog predict -i prompt="A cinematic shot of a penguin wearing an intricate italian robe, with a crown" -i seed=2418008291
 
 Or img2img:
 
